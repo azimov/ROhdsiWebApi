@@ -38,7 +38,7 @@ getConceptSets <- function(baseUrl, searchPrefix = "") {
   json <- httr::content(json)
   
   lists <- lapply(json, function(j) {
-    as.data.frame(j)
+    as.data.frame(j, stringsAsFactors = FALSE)
   })
   
   df <- do.call(rbind, lists)
